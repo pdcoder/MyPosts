@@ -465,7 +465,7 @@ var AuthService = /** @class */ (function () {
         var _this = this;
         var authData = { email: email, password: password };
         this.http
-            .post("http://localhost:3000/api/user/signup", authData)
+            .post("https://whispering-wildwood-37794.herokuapp.com/api/user/signup", authData)
             .subscribe(function () {
             _this.router.navigate(["/"]);
         }, function (error) {
@@ -476,7 +476,7 @@ var AuthService = /** @class */ (function () {
         var _this = this;
         var authData = { email: email, password: password };
         this.http
-            .post("http://localhost:3000/api/user/login", authData)
+            .post("https://whispering-wildwood-37794.herokuapp.com/api/user/login", authData)
             .subscribe(function (response) {
             var token = response.token;
             _this.token = token;
@@ -1381,7 +1381,7 @@ var PostsService = /** @class */ (function () {
         var _this = this;
         var queryParams = "?pagesize=" + postsPerPage + "&page=" + currentPage;
         this.http
-            .get("http://localhost:3000/api/posts" + queryParams)
+            .get("https://whispering-wildwood-37794.herokuapp.com/api/posts" + queryParams)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (postData) {
             return {
                 posts: postData.posts.map(function (post) {
@@ -1408,7 +1408,7 @@ var PostsService = /** @class */ (function () {
         return this.postsUpdated.asObservable();
     };
     PostsService.prototype.getPost = function (id) {
-        return this.http.get("http://localhost:3000/api/posts/" + id);
+        return this.http.get("https://whispering-wildwood-37794.herokuapp.com/api/posts/" + id);
     };
     PostsService.prototype.addPost = function (title, content, image) {
         var _this = this;
@@ -1417,7 +1417,7 @@ var PostsService = /** @class */ (function () {
         postData.append("content", content);
         postData.append("image", image, title);
         this.http
-            .post("http://localhost:3000/api/posts", postData)
+            .post("https://whispering-wildwood-37794.herokuapp.com/api/posts", postData)
             .subscribe(function (responseData) {
             _this.router.navigate(["/"]);
         });
@@ -1442,13 +1442,13 @@ var PostsService = /** @class */ (function () {
             };
         }
         this.http
-            .put("http://localhost:3000/api/posts/" + id, postData)
+            .put("https://whispering-wildwood-37794.herokuapp.com/api/posts/" + id, postData)
             .subscribe(function (response) {
             _this.router.navigate(["/"]);
         });
     };
     PostsService.prototype.deletePost = function (postId) {
-        return this.http.delete("http://localhost:3000/api/posts/" + postId);
+        return this.http.delete("https://whispering-wildwood-37794.herokuapp.com/api/posts/" + postId);
     };
     PostsService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({ providedIn: "root" }),
